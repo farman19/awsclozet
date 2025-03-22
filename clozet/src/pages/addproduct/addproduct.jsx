@@ -42,7 +42,7 @@ const handleaddproduct = async (e) => {
     formData.append('name',name);
     formData.append('description',description);
     try {
-        const response = await axios.post('/api/addproduct', formData, {
+        const response = await axios.post('http://localhost:4000/api/addproduct', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },

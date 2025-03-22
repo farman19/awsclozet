@@ -11,15 +11,15 @@ const storage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     const suffix = Date.now();
-    cb(null, suffix + '-' + file.originalname + file.fileSize +  file.fieldSize); },
+    cb(null, suffix + '-' + file.originalname); },
 });
 
 // Increase file size limit (for example, 10MB for file uploads)
 const upload = multer({
   storage: storage,
   limits: {
-    fileSize: 10 * 1024 * 1024,  // Set file size limit to 10MB
-    fieldSize: 10 * 1024 * 1024, // Set field size limit to 10MB (if applicable)
+    fileSize: 10 * 1024 * 1024,  
+    fieldSize: 10 * 1024 * 1024, 
   }
 }); // Use .single() if you are uploading a single file
 

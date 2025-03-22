@@ -32,7 +32,7 @@ const ProductList = () => {
     }
 
     useEffect(()=>{
-           axios.get('/api/getproduct')
+           axios.get('http://localhost:4000/api/getproduct')
            .then(product => setProduct(product.data))
            .catch(err =>
             console.log("cannot get data ", err))

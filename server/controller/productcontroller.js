@@ -3,7 +3,11 @@ import addproductModle from "../models/addproduct.js";
 
 const addproduct = async (req, res) => {
     const {name,description}  = req.body;
+    console.log("req is ", req );
+    console.log("==================================================");
+    console.log(req.file)
     const { filename,path } = req.file;
+    
     
     
 
