@@ -148,8 +148,8 @@ const ProductList = () => {
                                     <tbody >
 
                                        {
-                                        product.map=(item=>{
-                                          return  <tr align="center">
+                                        product && product.map(item=>{
+                                          return  <tr align="center" key={item.id}>
                                                 <td></td>
                                                 <td className="dit-img">
                                                     <div className="fd-img">

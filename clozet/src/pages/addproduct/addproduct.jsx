@@ -11,14 +11,16 @@ const AddProduct = ()=>{
     const [name,setName]=useState('');
     const [description,setDescription] = useState(''); 
     const [img, setImage] = useState('./images/defaultimg.png');
+    const [imagePreview, setImagePreview] = useState('./images/defaultimg.png');
     
     
     const handleImagechange = (e)=>{
         const file = e.target.files[0];
         if(file){
+            setImage(file);
             const reader = new FileReader();
             reader.onloadend = ()=>{
-                setImage(reader.result);
+                setImagePreview(reader.result);
             }
             reader.readAsDataURL(file);
         }
@@ -47,7 +49,7 @@ const handleaddproduct = async (e) => {
                 'Content-Type': 'multipart/form-data',
             },
         });
-        console.log('Product added successfully', response);
+        console.log('Product added successfully', response.data);
     } catch (error) {
         console.error('Error uploading image or adding product:', error);
     }
@@ -99,7 +101,7 @@ const handleaddproduct = async (e) => {
                         </div>
                         <div className="image-show-box">
                             <div className="image-show">
-                             {img && <img src={img} alt=""/>}
+                             {img && <img src={imagePreview} alt=""/>}
                             </div>
                         </div>
                         <div className="imgage-size">
